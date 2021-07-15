@@ -1,0 +1,6 @@
+movies
+database.yml
+coverage.out
+run.sh
+.idea
+*.code-workspace
