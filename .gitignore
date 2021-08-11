@@ -6,7 +6,12 @@ run.sh
 *.code-workspace
 documentation/secret.md
 *.env
-/.vscode
+.vscode/*
+*.code-workspace
+
+
+
+
 
 
 
