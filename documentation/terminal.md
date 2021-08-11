@@ -1,0 +1,2 @@
+- history > hist.txt
+- history --c

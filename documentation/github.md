@@ -1,20 +1,15 @@
 # Git Notes
 
-# Setup
-git config --global user.name "jwaldner"
-git config --global user.email "joejazzenator@gmail.com"
-
-# new
-echo "# goreportService" >> README.md
 git init
 git add README.md
+git add .
 git commit -m "first commit"
 git branch -M main
-git remote add origin https://github.com/jwaldner/goreportService.git
+git remote add origin https://github.com/user/repo.git
 git push -u origin main
 
 # existing
-git remote add origin https://github.com/jwaldner/goreportService.g
+git remote add origin https://github.com/user/repo.git
 
 # add
 git add .
