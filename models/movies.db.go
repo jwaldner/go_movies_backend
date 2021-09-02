@@ -3,7 +3,9 @@ package models
 import (
 	"context"
 	"database/sql"
+	"errors"
 	"fmt"
+	"log"
 	"time"
 )
 
@@ -171,7 +173,7 @@ func (m *DBModel) GetMovieGenres(movieID int) (map[int]string, error) {
 	return genres, nil
 }
 
-// All movies
+// All genres
 func (m *DBModel) GenresAll() ([]*Genre, error) {
 
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
@@ -217,7 +219,7 @@ func (m *DBModel) GenresAll() ([]*Genre, error) {
 }
 
 // InsertMovie inserts a single movie returns a potential error
-func (m *DBModel) InsertMovie(movie Movie) (error) {
+func (m *DBModel) InsertMovie(movie Movie) error {
 
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
@@ -228,7 +230,7 @@ func (m *DBModel) InsertMovie(movie Movie) (error) {
 	,created_at, updated_at, poster)
 	VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10);
 	`
-	_,err := m.DB.ExecContext(ctx, query,
+	_, err := m.DB.ExecContext(ctx, query,
 		&movie.Title,
 		&movie.Description,
 		&movie.Year,
@@ -239,7 +241,6 @@ func (m *DBModel) InsertMovie(movie Movie) (error) {
 		&movie.CreatedAt,
 		&movie.UpdatedAt,
 		&movie.Poster,
-
 	)
 
 	if err != nil {
@@ -257,9 +258,8 @@ func (m *DBModel) InsertMovie(movie Movie) (error) {
 	return nil
 }
 
-
 // UpdateMovie updates a single movie returns a potential error
-func (m *DBModel) UpdateMovie(movie Movie) (error) {
+func (m *DBModel) UpdateMovie(movie Movie, genres ...int) error {
 
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
@@ -270,7 +270,7 @@ func (m *DBModel) UpdateMovie(movie Movie) (error) {
 	WHERE id=$1;
 
 	`
-	_,err := m.DB.ExecContext(ctx, query,
+	_, err := m.DB.ExecContext(ctx, query,
 		&movie.ID,
 		&movie.Title,
 		&movie.Description,
@@ -281,26 +281,37 @@ func (m *DBModel) UpdateMovie(movie Movie) (error) {
 		&movie.MPAARating,
 		time.Now(),
 		&movie.Poster,
-
 	)
 
 	if err != nil {
 		return err
 	}
 
-	//genres, err := m.GetMovieGenres(id)
+	if len(genres) > 0 {
+		movieGenres, err := m.GetMovieGenres(movie.ID)
 
-	//if err != nil {
-	//	return movie, err
-	//}
+		if err != nil {
+			return err
+		}
 
-	//movie.MovieGenre = genres
+		for ID := range movieGenres {
+			log.Println("genre", ID)
+
+			for MID := range movie.MovieGenre {
+				log.Println("movie genre", MID)
+			}
+
+		}
+	}
+	if err != nil {
+		return err
+	}
 
 	return nil
 }
 
 // DeleteMovie deletes a single movie given the ID, returns a potential error
-func (m *DBModel) DeleteMovie( movieID int) (error) {
+func (m *DBModel) DeleteMovie(movieID int) error {
 
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
@@ -309,7 +320,7 @@ func (m *DBModel) DeleteMovie( movieID int) (error) {
 	DELETE FROM movies
 	WHERE id=$1;
 	`
-	_,err := m.DB.ExecContext(ctx, query,
+	_, err := m.DB.ExecContext(ctx, query,
 		movieID,
 	)
 
@@ -320,4 +331,109 @@ func (m *DBModel) DeleteMovie( movieID int) (error) {
 	return nil
 }
 
+// UpdateGenres given a valid optional ID updates a genre otherwise
+// inserts a single record, returns a potential error
+func (m *DBModel) UpdateGenres(genre string, ID ...int) error {
 
+	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+	defer cancel()
+
+	query := `
+	INSERT INTO genres
+	(genre_name, created_at, updated_at)
+	VALUES($1,$2,$3)`
+
+	if len(ID) > 0 {
+		if ID[0] > 0 {
+			query = `
+	UPDATE genres SET genre_name=$2, updated_at=$3 WHERE id=$1;`
+
+			_, err := m.DB.ExecContext(ctx, query,
+				&ID[0],
+				&genre,
+				time.Now())
+
+			if err != nil {
+				return err
+			} else {
+				return nil
+			}
+
+		} else {
+			return errors.New("invalid ID")
+		}
+	} else {
+		_, err := m.DB.ExecContext(ctx, query,
+			&genre,
+			time.Now(),
+			time.Now(),
+		)
+
+		if err != nil {
+			return err
+		} else {
+			return nil
+		}
+	}
+}
+
+// ClearGenreFromMovie clears the genres from a move, returns a potential error
+func (m *DBModel) ClearGenreFromMovie(movieID int) error {
+
+	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+	defer cancel()
+
+	query := `
+	DELETE FROM movie_genres
+	WHERE movie_id=$1;
+	`
+	_, err := m.DB.ExecContext(ctx, query,
+		movieID,
+	)
+
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// InsertMovieGenre  into a single movie returns a potential error
+func (m *DBModel) InsertMovieGenre(movieID, genre int) error {
+
+	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+	defer cancel()
+
+	query := `
+	INSERT INTO movie_genres
+	(movie_id, genres_id, updated_at)
+	VALUES($1,$2,$3);
+	`
+	_, err := m.DB.ExecContext(ctx, query,
+		&movieID,
+		&genre,
+		time.Now(),
+	)
+
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// InsertMovieGenres genres into a single movie returns a potential error
+func (m *DBModel) InsertMovieGenres(movieID int, genres ...int) error {
+
+	if len(genres) > 0 {
+
+		for _, g := range genres {
+			err := m.InsertMovieGenre(movieID, g)
+			if err != nil {
+				return err
+			}
+		}
+	}
+
+	return nil
+}
