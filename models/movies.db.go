@@ -5,7 +5,6 @@ import (
 	"database/sql"
 	"errors"
 	"fmt"
-	"log"
 	"time"
 )
 
@@ -22,10 +21,10 @@ func (m *DBModel) Get(id int) (*Movie, error) {
 	var movie Movie
 
 	query := `
-	SELECT id, title, description, "year", release_date, runtime, rating
-	, mpaa_rating, created_at, updated_at,coalesce(poster, '')
+	SELECT id, title, description, "year", release_date, runtime, rating, mpaa_rating, created_at, updated_at, coalesce(poster, '')
 	FROM movies WHERE id = $1;
 	`
+
 	row := m.DB.QueryRowContext(ctx, query, id)
 	err := row.Scan(
 		&movie.ID,
@@ -45,13 +44,14 @@ func (m *DBModel) Get(id int) (*Movie, error) {
 		return &movie, err
 	}
 
-	genres, err := m.GetMovieGenres(id)
+	genres, IDs, err := m.GetMovieGenres(id)
 
 	if err != nil {
 		return &movie, err
 	}
 
 	movie.MovieGenre = genres
+	movie.MovieGenreIDs = IDs
 
 	return &movie, nil
 }
@@ -104,13 +104,14 @@ func (m *DBModel) All(genre ...int) ([]*Movie, error) {
 			return movies, err
 		}
 
-		genres, err := m.GetMovieGenres(i.ID)
+		genres, IDs, err := m.GetMovieGenres(i.ID)
 
 		if err != nil {
 			return movies, err
 		}
 
 		i.MovieGenre = genres
+		i.MovieGenreIDs =IDs
 
 		movies = append(movies, &i)
 	}
@@ -123,15 +124,17 @@ func (m *DBModel) All(genre ...int) ([]*Movie, error) {
 }
 
 // GetMovieGenres get genres for a given movieID and potentially an error
-func (m *DBModel) GetMovieGenres(movieID int) (map[int]string, error) {
+func (m *DBModel) GetMovieGenres(movieID int) (map[int]string, []int,error) {
 
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
 
 	genres := make(map[int]string)
+	IDs := []int{}
 
 	query := `
-	SELECT movies_genres.id, movie_id, genre_id, genre_id, g.genre_name, movies_genres.created_at, movies_genres.updated_at
+	SELECT movies_genres.id, movie_id, genre_id, g.genre_name
+	,movies_genres.created_at,movies_genres.updated_at
 	FROM movies_genres 
 	LEFT JOIN genres g ON (g.id = movies_genres.genre_id)
 	WHERE movie_id = $1;
@@ -142,7 +145,7 @@ func (m *DBModel) GetMovieGenres(movieID int) (map[int]string, error) {
 	defer rows.Close()
 
 	if err != nil {
-		return genres, err
+		return genres,IDs, err
 	}
 
 	for rows.Next() {
@@ -152,28 +155,27 @@ func (m *DBModel) GetMovieGenres(movieID int) (map[int]string, error) {
 			&i.ID,
 			&i.MovieID,
 			&i.GenreID,
-			&i.Genre.ID,
 			&i.Genre.GenreName,
 			&i.CreatedAt,
 			&i.UpdatedAt,
 		)
 
 		if err != nil {
-			return genres, err
+			return genres, IDs, err
 		}
 
 		genres[i.ID] = i.Genre.GenreName
-
+		 IDs = append(IDs, i.ID) 
 	}
 
 	if err = rows.Err(); err != nil {
-		return genres, err
+		return genres, IDs, err
 	}
 
-	return genres, nil
+	return genres, IDs, nil
 }
 
-// All genres
+// GenresAll All genres
 func (m *DBModel) GenresAll() ([]*Genre, error) {
 
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
@@ -182,7 +184,7 @@ func (m *DBModel) GenresAll() ([]*Genre, error) {
 	var genres []*Genre
 
 	query := `
-	SELECT id, genre_name, created_at, updated_at
+	SELECT id, genre_name, json_name, created_at, updated_at
 	FROM genres
 	order by genre_name;
 	`
@@ -200,6 +202,7 @@ func (m *DBModel) GenresAll() ([]*Genre, error) {
 		err := rows.Scan(
 			&i.ID,
 			&i.GenreName,
+			&i.JSONname,
 			&i.CreatedAt,
 			&i.UpdatedAt,
 		)
@@ -268,7 +271,6 @@ func (m *DBModel) UpdateMovie(movie Movie, genres ...int) error {
 	UPDATE movies
 	SET title=$2, description=$3, "year"=$4, release_date=$5, runtime=$6, rating=$7, mpaa_rating=$8, updated_at=$9, poster=$10
 	WHERE id=$1;
-
 	`
 	_, err := m.DB.ExecContext(ctx, query,
 		&movie.ID,
@@ -288,21 +290,19 @@ func (m *DBModel) UpdateMovie(movie Movie, genres ...int) error {
 	}
 
 	if len(genres) > 0 {
-		movieGenres, err := m.GetMovieGenres(movie.ID)
+		err := m.ClearGenreFromMovie(movie.ID)
 
 		if err != nil {
 			return err
 		}
 
-		for ID := range movieGenres {
-			log.Println("genre", ID)
+		err = m.InsertMovieGenres(movie.ID, genres...)
 
-			for MID := range movie.MovieGenre {
-				log.Println("movie genre", MID)
-			}
-
+		if err != nil {
+			return err
 		}
 	}
+
 	if err != nil {
 		return err
 	}
@@ -333,24 +333,25 @@ func (m *DBModel) DeleteMovie(movieID int) error {
 
 // UpdateGenres given a valid optional ID updates a genre otherwise
 // inserts a single record, returns a potential error
-func (m *DBModel) UpdateGenres(genre string, ID ...int) error {
+func (m *DBModel) UpdateGenres(genre string, JSONname string, ID ...int) error {
 
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
 
 	query := `
 	INSERT INTO genres
-	(genre_name, created_at, updated_at)
-	VALUES($1,$2,$3)`
+	(genre_name, json_name, created_at, updated_at)
+	VALUES($1,$2,$3,$4)`
 
 	if len(ID) > 0 {
 		if ID[0] > 0 {
 			query = `
-	UPDATE genres SET genre_name=$2, updated_at=$3 WHERE id=$1;`
+	UPDATE genres SET genre_name=$2, jason_name=$3 updated_at=$4 WHERE id=$1;`
 
 			_, err := m.DB.ExecContext(ctx, query,
 				&ID[0],
 				&genre,
+				&JSONname,
 				time.Now())
 
 			if err != nil {
@@ -365,6 +366,7 @@ func (m *DBModel) UpdateGenres(genre string, ID ...int) error {
 	} else {
 		_, err := m.DB.ExecContext(ctx, query,
 			&genre,
+			&JSONname,
 			time.Now(),
 			time.Now(),
 		)
@@ -384,7 +386,7 @@ func (m *DBModel) ClearGenreFromMovie(movieID int) error {
 	defer cancel()
 
 	query := `
-	DELETE FROM movie_genres
+	DELETE FROM movies_genres
 	WHERE movie_id=$1;
 	`
 	_, err := m.DB.ExecContext(ctx, query,
@@ -405,13 +407,14 @@ func (m *DBModel) InsertMovieGenre(movieID, genre int) error {
 	defer cancel()
 
 	query := `
-	INSERT INTO movie_genres
-	(movie_id, genres_id, updated_at)
-	VALUES($1,$2,$3);
+	INSERT INTO movies_genres
+	(movie_id, genre_id, created_at, updated_at)
+	VALUES($1,$2,$3,$4);
 	`
 	_, err := m.DB.ExecContext(ctx, query,
 		&movieID,
 		&genre,
+		time.Now(),
 		time.Now(),
 	)
 
@@ -436,4 +439,32 @@ func (m *DBModel) InsertMovieGenres(movieID int, genres ...int) error {
 	}
 
 	return nil
+}
+
+// GetGenre gets a genre by id
+func (m *DBModel) GetGenre(id int) (*Genre, error) {
+
+	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+	defer cancel()
+
+	var genre Genre
+
+	query := `
+	SELECT id, genre_name, json_name, created_at, updated_at
+	FROM movies WHERE id = $1;
+	`
+	row := m.DB.QueryRowContext(ctx, query, id)
+	err := row.Scan(
+		&genre.ID,
+		&genre.GenreName,
+		&genre.JSONname,
+		&genre.CreatedAt,
+		&genre.UpdatedAt,
+	)
+
+	if err != nil {
+		return &genre, err
+	} else {
+		return &genre, err
+	}
 }

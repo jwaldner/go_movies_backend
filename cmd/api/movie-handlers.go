@@ -9,6 +9,7 @@ import (
 	"net/url"
 	"os"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/julienschmidt/httprouter"
@@ -20,6 +21,7 @@ type JSONresp struct {
 	Message string `json:"message"`
 }
 
+// MoviePayload the structure that comes from react
 type MoviePayload struct {
 	ID          string `json:"id"`
 	Title       string `json:"title"`
@@ -29,6 +31,13 @@ type MoviePayload struct {
 	Runtime     string `json:"runtime"`
 	Rating      string `json:"rating"`
 	MPAARating  string `json:"mpaa_rating"`
+	Genres      string `json:"genres"`
+}
+
+// GenrePayload the structure that comes from react
+type GenrePayload struct {
+	ID    string `json:"id"`
+	Title string `json:"title"`
 }
 
 func (app *application) getOneMovie(w http.ResponseWriter, r *http.Request) {
@@ -123,6 +132,9 @@ func (app *application) editMovie(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	var arr []models.Genre
+	_ = json.Unmarshal([]byte(payload.Genres), &arr)
+
 	var movie models.Movie
 
 	if payload.ID != "0" {
@@ -140,12 +152,24 @@ func (app *application) editMovie(w http.ResponseWriter, r *http.Request) {
 	movie.Runtime, _ = strconv.Atoi(payload.Runtime)
 	movie.Rating, _ = strconv.Atoi(payload.Rating)
 	movie.MPAARating = payload.MPAARating
+
 	movie.CreatedAt = time.Now()
 	movie.UpdatedAt = time.Now()
 
 	if movie.Poster == "" {
 		movie = getPoster(movie)
 	}
+
+	genres := make(map[int]string)
+	IDs := []int{}
+
+	for _, v := range arr {
+		genres[v.ID] = v.GenreName
+		IDs = append(IDs,v.ID)	
+	}
+
+	movie.MovieGenre = genres
+	movie.MovieGenreIDs = IDs
 
 	if movie.ID == 0 {
 		err = app.models.DB.InsertMovie(movie)
@@ -155,11 +179,23 @@ func (app *application) editMovie(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 	} else {
-		err = app.models.DB.UpdateMovie(movie)
-		if err != nil {
-			app.errorJSON(w, err)
-			app.logger.Println(err)
-			return
+
+		if len(movie.MovieGenre) > 0 {
+			err = app.models.DB.UpdateMovie(movie, movie.MovieGenreIDs...)
+
+			if err != nil {
+				app.errorJSON(w, err)
+				app.logger.Println(err)
+				return
+			}
+		} else {
+
+			err = app.models.DB.UpdateMovie(movie)
+			if err != nil {
+				app.errorJSON(w, err)
+				app.logger.Println(err)
+				return
+			}
 		}
 	}
 
@@ -286,4 +322,62 @@ func getPoster(movie models.Movie) models.Movie {
 	}
 
 	return movie
+}
+
+func (app *application) editGenre(w http.ResponseWriter, r *http.Request) {
+	var payload GenrePayload
+
+	app.logger.Print("edit genre called")
+
+	err := json.NewDecoder(r.Body).Decode(&payload)
+	if err != nil {
+		log.Println(err)
+		app.errorJSON(w, err)
+		return
+	}
+
+	var genre models.Genre
+
+	if payload.ID != "0" {
+		id, _ := strconv.Atoi(payload.ID)
+		g, _ := app.models.DB.GetGenre(id)
+		genre = *g
+		genre.UpdatedAt = time.Now()
+	}
+
+	genre.ID, _ = strconv.Atoi(payload.ID)
+	genre.GenreName = payload.Title
+
+	genre.CreatedAt = time.Now()
+	genre.UpdatedAt = time.Now()
+
+	if genre.ID == 0 {
+		err = app.models.DB.UpdateGenres(genre.GenreName, strings.ToLower(strings.ReplaceAll(genre.GenreName, " ", "_")))
+		if err != nil {
+			app.errorJSON(w, err)
+			app.logger.Println(err)
+			return
+		}
+	} else {
+		err = app.models.DB.UpdateGenres(genre.GenreName, strings.ToLower(strings.ReplaceAll(genre.GenreName, " ", "_")), genre.ID)
+		if err != nil {
+			app.errorJSON(w, err)
+			app.logger.Println(err)
+			return
+		}
+	}
+
+	ok := JSONresp{
+		OK:      true,
+		Message: "Movie saved",
+	}
+
+	err = app.writeJSON(w, http.StatusOK, ok, "response")
+	if err != nil {
+		app.errorJSON(w, err)
+		app.logger.Println(err)
+		return
+	}
+
+	app.logger.Printf("movie ID: %v saved", genre.ID)
 }

@@ -1,0 +1,1000 @@
+  969  sudo service postgresql start
+  970  ./run.sh
+  971  sudo service postgresql start
+  972  ./run.sh
+  973  sudo service postgresql start
+  974  ./run.sh
+  975  ./run.sh
+  976  sudo service postgresql start
+  977  ./run.sh
+  978  sudo service postgresql start
+  979  ./run.sh
+  980  ~/go/bin/MailHog
+  981  MailHog
+  982  MailHog
+  983  mailhog
+  984  mailHog
+  985  MailHog
+  986  ./run.sh
+  987  cmd/web/middleware.go:42:7cmd/web/middleware.go:42:7cmd/web/middleware.go:42:7cmd/web/middleware.go:42:7cmd/web/middleware.go:42:7cmd/web/middleware.go:42:7cmd/web/middleware.go:42:7cmd/web/middleware.go:42:7cmd/web/middleware.go:42:7cmd/web/middleware.go:42:7cmd/web/middleware.go:42:7
+  988  soda generate sql AddUserToUserTable
+  989  sudo service postgresql start
+  990  soda migrate
+  991  ls
+  992  cd projects/
+  993  ls
+  994  cs ts
+  995  cs tsawler_web_course/
+  996  cd tsawler_web_course/
+  997  ls
+  998  cd bookings
+  999  code .
+ 1000  go doc -http:8001
+ 1001  sudo service postgresql start
+ 1002  ./run.sh
+ 1003  cd..
+ 1004  cd ..
+ 1005  ls
+ 1006  mdir protobuf
+ 1007  mkdir protobuf
+ 1008  cd protobuf
+ 1009  code .
+ 1010  co mod github.com/jwaldner/protobuf1
+ 1011  go  mod github.com/jwaldner/protobuf1
+ 1012  co mod init github.com/jwaldner/protobuf1
+ 1013  go mod init github.com/jwaldner/protobuf1
+ 1014  go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.26
+ 1015  go install google.golang.org/protobuf/proto
+ 1016  cls
+ 1017  clear
+ 1018  go mod init github.com/jwaldner/protobuf1
+ 1019  go get -u github.com/golang/protobuf/protoc-gen-go
+ 1020  go get -u github.com/golang/protobuf/proto
+ 1021  protoc -I src/ --go_out=src/ src/simple/simple.proto
+ 1022  sudo apt install protobuf-compiler
+ 1023  protoc -I src/ --go_out=src/ src/simple/simple.proto
+ 1024  protoc -I /part1/src/ --go_out=/part1/src/ src/simple/simple.proto
+ 1025  protoc --h
+ 1026  protoc --help
+ 1027  go get -help
+ 1028  go help get
+ 1029  go help module get
+ 1030  go help module-get
+ 1031  godoc -http :8001
+ 1032  ls
+ 1033  cd projects
+ 1034  ls
+ 1035  cd protobuf
+ 1036  mkdir notes
+ 1037  mkdir part1
+ 1038  cd protobuf
+ 1039  ls
+ 1040  code .
+ 1041  ls
+ 1042  cd ..
+ 1043  ls
+ 1044  cd protobuf
+ 1045  ls
+ 1046  code .
+ 1047  protoc -I src/ --go_out=src/ src/simple/simple.proto
+ 1048  go mod init github.com/jwaldner/protobuf
+ 1049  go run maim.go
+ 1050  go run main.go
+ 1051  protoc -I src/ --go_out=src/ src/simple/simple.proto
+ 1052  go mod tidy
+ 1053  protoc -I src/ --go_out=src/ src/simple/simple.proto
+ 1054  clear
+ 1055  protoc -I src/ --go_out=src/ src/simple/simple.proto
+ 1056  go mod tidy
+ 1057  go mod tidy
+ 1058  protoc -I src/ --go_out=src/ src/simple/simple.proto
+ 1059  go mod init github.com/jwaldner/protobufexample
+ 1060  go mod tidy
+ 1061  protoc -I src/ --go_out=src/ src/simple/simple.proto
+ 1062  go mod tidy
+ 1063  ls
+ 1064  cd projects
+ 1065  code .
+ 1066  ls
+ 1067  code .
+ 1068  sudo fdisk -l
+ 1069  df -h
+ 1070  git@github.com:jwaldner/bookings.git
+ 1071  git clone git@github.com:jwaldner/bookings.git
+ 1072  ls
+ 1073  cd gomodules
+ 1074  ls
+ 1075  cd amtelco
+ 1076  code .
+ 1077  cd ..
+ 1078  ls
+ 1079  cd amtelco
+ 1080  ls
+ 1081  code .
+ 1082  ls
+ 1083  cd ..
+ 1084  ls
+ 1085  mkdir tsawlwer_webdev
+ 1086  code .
+ 1087  ls
+ 1088  code .
+ 1089  ls
+ 1090  cd gomodules
+ 1091  ls
+ 1092  code .
+ 1093  ls
+ 1094  cd ..
+ 1095  ls
+ 1096  cd jjw_bookings/code .
+ 1097  cd jjw_bookings/
+ 1098  code .
+ 1099  cd ..
+ 1100  ls
+ 1101  cd tsawlwer_webdev/
+ 1102  code .
+ 1103  cd ..
+ 1104  history > hist.txt
+ 1105  ./run.sh
+ 1106  sudo ./run.sh
+ 1107  run.sh
+ 1108  ./run.sh
+ 1109  chmod +x run.sh
+ 1110  ./run.sh
+ 1111  sudo service postgresql start
+ 1112  ./run.sh
+ 1113  history
+ 1114  clear
+ 1115  history > hist.txt
+ 1116  ./run.sh
+ 1117  cd ..
+ 1118  ls
+ 1119  cd tsawlwer_webdev/
+ 1120  ls
+ 1121  cd bookings/
+ 1122  code .
+ 1123  cd ..
+ 1124  ls
+ 1125  cd jjw_bookings/
+ 1126  code .
+ 1127  ./run.sh
+ 1128  cd bookings
+ 1129  ./run.sh
+ 1130  ls
+ 1131  cd tsawlwer_webdev/
+ 1132  ls
+ 1133  code .
+ 1134  cd ..
+ 1135  ls
+ 1136  cd jjw_bookings/
+ 1137  code .
+ 1138  clear
+ 1139  ./run.sh
+ 1140  clear
+ 1141  ./run.sh
+ 1142  clear
+ 1143  ./run.sh
+ 1144  @echo TEST_VAR
+ 1145  echo $TEST_VAR
+ 1146  export TEST_VAR
+ 1147  DB_NAME='bookings'
+ 1148  DB_USER='jjw'
+ 1149  DB_PASS='Wjjhj4.5'
+ 1150  export DB_NAME
+ 1151  export DB_USER
+ 1152  export DB_PASS
+ 1153  echo $TEST_VAR
+ 1154  echo $DB_USER
+ 1155  ls
+ 1156  cd gomodules/
+ 1157  cd amtelco/
+ 1158  code .
+ 1159  cd ..
+ 1160  ls
+ 1161  cd tsawlwer_webdev/
+ 1162  code .
+ 1163  sudo service postgresql start
+ 1164  ./run.sh
+ 1165  go get gopkg.in/yaml.v2
+ 1166  gopkg -v
+ 1167  sudo service postgresql start
+ 1168  go mod init module github.com/jwaldner/bookings
+ 1169  go mod init github.com/jwaldner/bookings
+ 1170  go mod tidy
+ 1171  ./run.sh
+ 1172  go mod tidy
+ 1173  go mod init github.com/jwaldner/bookings-sample
+ 1174  go mod tidy
+ 1175  ./run.sh
+ 1176  git init
+ 1177  git add .
+ 1178  git commit -m "first commit"
+ 1179  git branch -M main
+ 1180  git remote add origin git@github.com:jwaldner/bookings-sample.git
+ 1181  git push -u origin main
+ 1182  clear
+ 1183  git add .
+ 1184  git commit -m "updated readme"
+ 1185  git push -u origin main
+ 1186  ./run.sh
+ 1187  sudo service postgresql start
+ 1188  ./run.sh
+ 1189  go mod init github/jwaldner/greet_service
+ 1190  go mod tidy
+ 1191  ls
+ 1192  cd projects/
+ 1193  ls
+ 1194  cd .
+ 1195  cd ..
+ 1196  pwd
+ 1197  lx
+ 1198  ls
+ 1199  protoc --version
+ 1200  ls
+ 1201  cd grpc
+ 1202  cd grpc_
+ 1203  cd grpc_project/
+ 1204  ls
+ 1205  code .
+ 1206  ls
+ 1207  code .
+ 1208  cd ..
+ 1209  code .
+ 1210  ls
+ 1211  cd grpc_project/
+ 1212  ls
+ 1213  code .
+ 1214  cd ..
+ 1215  code .
+ 1216  ls
+ 1217  cd projects
+ 1218  code .
+ 1219  ls
+ 1220  cd projects
+ 1221  code .
+ 1222  ls
+ 1223  cd code
+ 1224  ls
+ 1225  cd ..
+ 1226  ls
+ 1227  cd prjects
+ 1228  cd projects
+ 1229  code .
+ 1230  rm -r ~/.vscode-server/bin/88f15d17dca836346e787762685a40bb5cce75a8
+ 1231  ls
+ 1232  code .
+ 1233  go mod init github.com/jwaldner/code_gen_test
+ 1234  code .
+ 1235  go run main.go
+ 1236  $ go get -u google.golang.org/grpc
+ 1237  clear
+ 1238  go mod tidy
+ 1239  go run main.go
+ 1240  go git google.golang.org/protobuf
+ 1241  go git -u google.golang.org/protobuf
+ 1242  go get -u google.golang.org/protobuf
+ 1243  ls
+ 1244  cd ..
+ 1245  ls
+ 1246  cd code-gen-test/
+ 1247  clear
+ 1248  ls
+ 1249  protoc
+ 1250  protoc greet/greetpb/greet.proto --go_out=plugins=grpc:.
+ 1251  protoc  protoc /greet/greetpb/greet.proto --go_out=plugins=grpc:.greet/greetpb/greet.proto --go_out=plugins=grpc:.
+ 1252  protoc  protoc greet/greetpb/greet.proto --go_out=plugins=grpc:.greet/greetpb/greet.proto --go_out=plugins=grpc:.
+ 1253  protoc greet/greetpb/greet.proto --go_out=plugins=grpc:.
+ 1254  ls
+ 1255  protoc greet/greetpb/greet.proto --go_out=plugins=grpc:.
+ 1256  ls
+ 1257  protoc greet/greetpb/greet.proto --go_out=plugins=grpc:.
+ 1258  cd ..
+ 1259  protoc greet/greetpb/greet.proto --go_out=plugins=grpc:.
+ 1260  ls
+ 1261  cd code-gen-test/
+ 1262  ls
+ 1263  protoc greet/greetpb/greet.proto --go_out=plugins=grpc:.
+ 1264  ls
+ 1265  pwd
+ 1266  protoc greet/greetpb/greet.proto --go_out=plugins=grpc:.
+ 1267  cdd ..
+ 1268  cd ..
+ 1269  ls
+ 1270  cd code-gen-test/ 
+ 1271  ls
+ 1272  cd code-gen-test/
+ 1273  ls
+ 1274  chmod +x run_client.sh
+ 1275  ./run_client.sh
+ 1276  ls
+ 1277  ./run_client.sh
+ 1278  ./run.sh
+ 1279  ls
+ 1280  ./run_client.sh
+ 1281  ls
+ 1282  chmos +x run_client.sh
+ 1283  chmod +x run_client.sh
+ 1284  ./run_client.sh
+ 1285  chmod +x run_client.sh
+ 1286  ls
+ 1287  ./run_client
+ 1288  cls
+ 1289  clear
+ 1290  ./run_client
+ 1291  ./run_client
+ 1292  go build -o greet_client code-gen-test/greet/greet_client/*.go
+ 1293  go mod tidy
+ 1294  protoc greet/greetpb/greet.proto --go_out=plugins=grpc:.
+ 1295  cmod -x run.sh
+ 1296  chmod -x run.sh
+ 1297  ls
+ 1298  chmod -x run.sh
+ 1299  run.sh
+ 1300  ls
+ 1301  run.sh
+ 1302  chmod +x run.sh
+ 1303  run.sh
+ 1304  ls
+ 1305  run.sh
+ 1306  ls
+ 1307  go run greet/greet_server/*.go
+ 1308  ls
+ 1309  cmod
+ 1310  chmod +x run.sh
+ 1311  ls
+ 1312  run.sh 
+ 1313  ./run.sh 
+ 1314  ls
+ 1315  ls run.sh
+ 1316  run.sh 
+ 1317  go run /greet/greet_server/*.go
+ 1318  go run greet/greet_server/*.go
+ 1319  run.sh 
+ 1320  ./run.sh
+ 1321  chmod +x generate.sh
+ 1322  ./generate.sh
+ 1323  ./run.sh
+ 1324  ls
+ 1325  ./run.sh
+ 1326  ./run_client
+ 1327  ./run
+ 1328  ls
+ 1329  ./run.sh
+ 1330  ./run_client.sh
+ 1331  ./greet_server.sh
+ 1332  ls
+ 1333  ./run_greet_server.sh
+ 1334  ./run_greet_client.sh
+ 1335  cd code-gen-test/
+ 1336  ./run_greet_client.sh
+ 1337  ls
+ 1338  ./generate.sh
+ 1339  go mod tidy
+ 1340  ls
+ 1341  cd code-gen-test/
+ 1342  ls
+ 1343  ./run_greet_server.sh
+ 1344  ls
+ 1345  cd code-gen-test/
+ 1346  ls
+ 1347  ./run_greet_client.sh
+ 1348  ls
+ 1349  ./run_greet_server.sh
+ 1350  cd te
+ 1351  cd tcode
+ 1352  cd code-gen-test/
+ 1353  ./run_greet_server.sh
+ 1354  ./generate.sh
+ 1355  ./run_greet_server.sh
+ 1356  cd code-gen-test/
+ 1357  ./run_greet_client.sh
+ 1358  clear
+ 1359  ./run_greet_client.sh
+ 1360  clear
+ 1361  ./run_greet_client.sh
+ 1362  ls
+ 1363  chmod +x run_calc_client.sh 
+ 1364  chmod +x run_calc_server.sh 
+ 1365  ./generate.sh 
+ 1366  ./run_calc_server.sh
+ 1367  cd code-gen-test/
+ 1368  ./run_calc_client.sh
+ 1369  chmod +x run_greet_st_server.sh 
+ 1370  chmod +x run_greet_st_client.sh 
+ 1371  generate
+ 1372  ./generate.sh
+ 1373  ls
+ 1374  cd jjw_bookings/
+ 1375  code .
+ 1376  cd ..
+ 1377  ls
+ 1378  cd grpc-go-course-master/
+ 1379  code .
+ 1380  ls
+ 1381  cd ..
+ 1382  ls
+ 1383  mkdir grpc-go-course
+ 1384  cd grpc-
+ 1385  cd grpc-go-course
+ 1386  mkdir code-gen-test
+ 1387  cd code-gen-test/
+ 1388  cd ..
+ 1389  code .
+ 1390  ls
+ 1391  cd code-gen-test/
+ 1392  code .
+ 1393  cd ..
+ 1394  code .
+ 1395  cd ..
+ 1396  ls
+ 1397  cd grpc-go-course
+ 1398  ls
+ 1399  code .
+ 1400  ls
+ 1401  code .
+ 1402  ls
+ 1403  code .
+ 1404  ls
+ 1405  cd grpc-go-course
+ 1406  ls
+ 1407  code .
+ 1408  ls
+ 1409  cd grpc-go-course
+ 1410  code .
+ 1411  ls
+ 1412  cd grpc-go-course
+ 1413  code .
+ 1414  ls
+ 1415  cd code-gen-test/
+ 1416  code .
+ 1417  cd ..
+ 1418  cd pwd
+ 1419  ls
+ 1420  cd grpc_udemy/
+ 1421  code .
+ 1422  ls
+ 1423  chmod +x run_stream_client
+ 1424  ./run_stream_client.sh
+ 1425  ./run_calc_client.sh
+ 1426  chmod +x run_calc_client.sh
+ 1427  ./run_calc_client.sh
+ 1428  ./genetate.sh
+ 1429  ls
+ 1430  ls *.sh
+ 1431  ./genetate.sh
+ 1432  protoc greet/greetpb/greet.proto --go_out=plugins=grpc:.
+ 1433  ./genetate.sh
+ 1434  chmod +x generate.sh
+ 1435  ./generate.sh
+ 1436  ./code-gen-test/run_greet_st_server.sh
+ 1437  ./run_greet_st_server.sh
+ 1438  chmod +x run_greet_st_server.sh 
+ 1439  ./run_greet_st_server.sh
+ 1440  ./run_stream_server.sh 
+ 1441  ls
+ 1442  ./generate.sh 
+ 1443  ls
+ 1444  chmod +x run_calc_server.sh 
+ 1445  ./run_calc_server.sh 
+ 1446  ./generate.sh 
+ 1447  ./run_calc_server.sh 
+ 1448  ./generate.sh 
+ 1449  ./run_stream_server.sh
+ 1450  ./run_stream_client.sh
+ 1451  ./run_stream_server.sh
+ 1452  clear
+ 1453  ./run_stream_server.sh
+ 1454  clear
+ 1455  ./generate.sh 
+ 1456  ./generate.sh
+ 1457  ./run_calc_s
+ 1458  ./run_calc_server.sh 
+ 1459  ls
+ 1460  cd code-gen-test/
+ 1461  ./generate.sh 
+ 1462  cd code-gen-test/
+ 1463  ./run_stream_server.sh 
+ 1464  ./run_calc_server.sh 
+ 1465  clear
+ 1466  ./run_calc_server.sh 
+ 1467  clear
+ 1468  ./run_calc_server.sh 
+ 1469  ./generate.sh 
+ 1470  ./run_calc_server.sh 
+ 1471  cd code-gen-test/
+ 1472  ./run_calc_server.sh 
+ 1473  ./run_stream_server.sh 
+ 1474  clear
+ 1475  ./run_stream_server.sh 
+ 1476  cd code-gen-test/
+ 1477  clear
+ 1478  ./run_calc_client.sh 
+ 1479  clear
+ 1480  ./run_calc_client.sh 
+ 1481  clear
+ 1482  ./run_calc_client.sh 
+ 1483  clear
+ 1484  ./run_calc_client.sh 
+ 1485  ./generate.sh 
+ 1486  ./run_stream_client.sh 
+ 1487  clear
+ 1488  ./run_stream_client.sh 
+ 1489  clear
+ 1490  clear
+ 1491  ./run_stream_client.sh 
+ 1492  cd co
+ 1493  ./run_stream_server.sh.sh 
+ 1494  ./run_stream_client.sh 
+ 1495  ./run_calc_server.sh 
+ 1496  cd co
+ 1497  ./run_stream_server.sh 
+ 1498  cd ..
+ 1499  ./run_stream_server.sh 
+ 1500  clear
+ 1501  ./run_stream_server.sh 
+ 1502  ls
+ 1503  mkdir grpc_geo_features
+ 1504  cd grpc_geo_features/
+ 1505  ls
+ 1506  code .
+ 1507  ls
+ 1508  cd grpc-go
+ 1509  ls
+ 1510  go mod tidy
+ 1511  code .
+ 1512  cd grpc_examples_google/
+ 1513  code .
+ 1514  ls
+ 1515  cd rpc.go
+ 1516  cd grpc
+ 1517  cd grpc-go/
+ 1518  code .
+ 1519  cmod +x msg_client.sh
+ 1520  chmod +x msg_client.sh
+ 1521  msg_client.sh
+ 1522  ./msg_client.sh
+ 1523  ls
+ 1524  cd grpc_udemy/
+ 1525  code .
+ 1526  la
+ 1527  sudo apt update
+ 1528  go run main.go
+ 1529  ls
+ 1530  gcloud app deploy --project reportfinder-303021
+ 1531  curl https://reportfinder-303021.uc.r.appspot.com/api/version/|jq
+ 1532  curl https://jjwwfs.com/api/version/
+ 1533  cd ..
+ 1534  ld
+ 1535  ls
+ 1536  cd report-api/
+ 1537  ls
+ 1538  git add .
+ 1539  ls
+ 1540  cd report-api/
+ 1541  git add .
+ 1542  ls
+ 1543  cd gomodules
+ 1544  ls
+ 1545  cd amtelco/
+ 1546  ls
+ 1547  cd re
+ 1548  cd reports/
+ 1549  ls
+ 1550  code .
+ 1551  cd ..
+ 1552  ls
+ 1553  cd jjw_bookings/
+ 1554  ls
+ 1555  code .
+ 1556  cd ..
+ 1557  ls
+ 1558  node -v
+ 1559  sudo apt-get install curl
+ 1560  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+ 1561  command -v nvm
+ 1562  chmod +x run.sh
+ 1563  cd report-api/
+ 1564  chmod +x run.sh
+ 1565  ls
+ 1566  ./run.sh
+ 1567  git add .
+ 1568  git commit -m "added gitignore & other things"
+ 1569  git push -u origin main
+ 1570  node -v
+ 1571  cd react-apps/
+ 1572  code .
+ 1573  nvm ls
+ 1574  nvm install node
+ 1575  nvm ls
+ 1576  which node
+ 1577  clear
+ 1578  node -v
+ 1579  npm - v
+ 1580  npm -v
+ 1581  ls
+ 1582  mkdir react-apps
+ 1583  cd react-apps/
+ 1584  nps createpeact-app hello-app
+ 1585  npx createpeact-app hello-app
+ 1586  npx create-react-app hello-app
+ 1587  cd hello-app/]
+ 1588  cd hello-app/
+ 1589  ls
+ 1590  npm start
+ 1591  npm instal
+ 1592  npm start
+ 1593  npm statt
+ 1594  npm instal
+ 1595  npm start
+ 1596  ls
+ 1597  cd react-apps/
+ 1598  ls
+ 1599  cd hello-app/
+ 1600  ls
+ 1601  npm start
+ 1602  cd ..
+ 1603  ls
+ 1604  code .
+ 1605  cd react-apps/
+ 1606  cd test-app/
+ 1607  code ,
+ 1608  ls
+ 1609  code .
+ 1610  cd react-apps/test-app/
+ 1611  code .
+ 1612  cd ..
+ 1613  clear
+ 1614  npm install bootstrap
+ 1615  cd react-apps/
+ 1616  cd test-app/
+ 1617  cd ..
+ 1618  ls
+ 1619  cd react-apps/
+ 1620  ls
+ 1621  npx create-react-app test-app
+ 1622  cd test-app
+ 1623  npm start
+ 1624  ls
+ 1625  ./run.sh
+ 1626  gcloud app deploy --project reportfinder-303021
+ 1627  curl https://reportfinder-303021.uc.r.appspot.com/api/version/|jq
+ 1628  curl https://jjwwfs.com/api/version/
+ 1629  git commit -m "added new report"
+ 1630  git add .
+ 1631  git commit -m "added new report"
+ 1632  git push -u origin main
+ 1633  npm start
+ 1634  cd test-app/
+ 1635  npm start
+ 1636  ls
+ 1637  cd react-apps/
+ 1638  ls
+ 1639  cd test-app/
+ 1640  code .
+ 1641  cd ..
+ 1642  code .
+ 1643  cd test-app/
+ 1644  cd ..
+ 1645  code .
+ 1646  cd test-app/
+ 1647  npm start
+ 1648  ls
+ 1649  cd report-api/
+ 1650  ls
+ 1651  ./run.sh
+ 1652  gcloud app deploy --project reportfinder-303021
+ 1653  git add .
+ 1654  git commit -m "added new reports"
+ 1655  git push -u origin main
+ 1656  curl https://jjwwfs.com/api/version/
+ 1657  ls
+ 1658  cd go-movies/
+ 1659  npm start
+ 1660  cd go-movies/
+ 1661  npm install react-router-dom
+ 1662  npm audit fix --force
+ 1663  cd react-apps/
+ 1664  npx create-react-app go-movies
+ 1665  code .
+ 1666  go mod init github.com/jwaldner/go-movies-backend
+ 1667  go mod tidy
+ 1668  ls
+ 1669  chmod +x run.sh
+ 1670  ls
+ 1671  ./run.sh
+ 1672  git init
+ 1673  git add README.md
+ 1674  git commit -m "first commit"
+ 1675  git add .
+ 1676  git commit -m "first commit"
+ 1677  ./run.sh
+ 1678  go get github.com/julienschmidt/httprouter
+ 1679  ./run.sh
+ 1680  ls
+ 1681  cd react-apps/
+ 1682  ls
+ 1683  mkdir go-movies-backend
+ 1684  cd go-movies-backend/
+ 1685  code .
+ 1686  ./run.sh
+ 1687  go mod tidy
+ 1688  ./run.sh
+ 1689  sudo service postgresql start
+ 1690  ls
+ 1691  psql -d go_movies -f go_movies.sql
+ 1692  sudo su postgres
+ 1693  go get -u github.com/lib/pq@v1.10.0
+ 1694  ./run.sh
+ 1695  cd ..
+ 1696  ls
+ 1697  ./run.sh
+ 1698  clear
+ 1699  ./run.sh
+ 1700  clear
+ 1701  ./run.sh
+ 1702  clear
+ 1703  ./run.sh
+ 1704  clear
+ 1705  ./run.sh
+ 1706  npm start
+ 1707  ls
+ 1708  cd react-apps/
+ 1709  ls
+ 1710  code .
+ 1711  ls
+ 1712  cd go-movies
+ 1713  ls
+ 1714  npm start
+ 1715  sudo start  postgres
+ 1716  sudo service postgresql start
+ 1717  ./run.sh
+ 1718  cd ..
+ 1719  npm start
+ 1720  ./run.sh
+ 1721  cd go-movies
+ 1722  ls
+ 1723  cd react-apps
+ 1724  ls
+ 1725  cd go movies
+ 1726  ls
+ 1727  cd go-movies
+ 1728  ls
+ 1729  code .
+ 1730  ls
+ 1731  cd ..
+ 1732  ls
+ 1733  cd *back*
+ 1734  code .
+ 1735  npm start
+ 1736  sudo service postgresql start
+ 1737  ./run.sh
+ 1738  sudo service postgresql start
+ 1739  ./run.sh
+ 1740  npm start
+ 1741  sudo service postgresql start
+ 1742  ./run.sh
+ 1743  npm start
+ 1744  sudo service postgresql start
+ 1745  ./run.sh
+ 1746  npm start
+ 1747  npm start
+ 1748  cd ..
+ 1749  ./run.sh
+ 1750  sudo service postgresql start
+ 1751  npm start
+ 1752  sudo service postgresql start
+ 1753  ./run.sh
+ 1754  npm start
+ 1755  npm start
+ 1756  sudo service postgresql start
+ 1757  ./run.sh
+ 1758  s
+ 1759  ls
+ 1760  cd tsawlwer_webdev/
+ 1761  ls
+ 1762  cd bookings/
+ 1763  code .
+ 1764  ls
+ 1765  cd ..
+ 1766  ls
+ 1767  cd ..
+ 1768  ls
+ 1769  cd jjw_bookings/
+ 1770  code .
+ 1771  go get github.com/pascaldekloe/jwt
+ 1772  ./run.sh
+ 1773  go get golang.org/x/crypto/bcrypt
+ 1774  ./run.sh
+ 1775  ./run.sh
+ 1776  sudo service postgresql start
+ 1777  ./run.su
+ 1778  ./run.sh
+ 1779  npm start
+ 1780  sudo service postgresql start
+ 1781  ./run.sh
+ 1782  go get github.com/justinas/alice
+ 1783  ./run.sh
+ 1784  clear
+ 1785  ./run.sh
+ 1786  ./run.sh
+ 1787  clear
+ 1788  ./run.sh
+ 1789  npm start
+ 1790  sudo service postgresql start
+ 1791  clear
+ 1792  ./run.sh
+ 1793  npm start
+ 1794  clear
+ 1795  npm start
+ 1796  clear
+ 1797  ./run.sh
+ 1798  clear
+ 1799  ./run.sh
+ 1800  clear
+ 1801  ./run.sh
+ 1802  service postgresql start
+ 1803  sudo service postgresql start
+ 1804  service postgresql status
+ 1805  ./run.sh
+ 1806  npm start
+ 1807  go get github.com/graphql-go/graphql
+ 1808  ./run.sh
+ 1809  clear
+ 1810  ./run.sh
+ 1811  clear
+ 1812  ./run.sh
+ 1813  clear
+ 1814  ./run.sh
+ 1815  ./run.sh
+ 1816  clear
+ 1817  ./run.sh
+ 1818  sudo service postgresql start
+ 1819  npm start
+ 1820  sudo service postgresql start
+ 1821  ./run.sh
+ 1822  REACT_APP_API_URL
+ 1823  printenv
+ 1824  printenv *REACT*
+ 1825  printenv *REACT
+ 1826  printenv 
+ 1827  clear
+ 1828  printenv REACT_APP_URL 
+ 1829  printenv REACT_APP_URL
+ 1830  export REACT_APP_API_URL='http://localhost:4000'
+ 1831  printenv REACT_APP_URL
+ 1832  export REACT_APP_API_URL='http://localhost:4000'
+ 1833  printenv home 
+ 1834  printenv HOME
+ 1835  printenv $HOME
+ 1836  printenv REACT_APP_API_URL
+ 1837  printenv REACT_APP_API_URL
+ 1838  npm start
+ 1839  printenv REACT_APP_API_URL
+ 1840  npm start
+ 1841  printenv REACT_APP_API_URL
+ 1842  export REACT_APP_API_URL='http://localhost:4000'
+ 1843  printenv  REACT_APP_API_URL
+ 1844  npm start
+ 1845  printenv REACT_APP_API_URL
+ 1846  export REACT_APP_API_URL='http://localhost:4000'
+ 1847  printenv REACT_APP_API_URL
+ 1848  npm start
+ 1849  printenv REACT_APP_API_URL
+ 1850  npm start
+ 1851  export GO_MOVIES_JWT='2dce505d96a53c5768052ee90f3df2055657518dad489160df9913f66042e160'
+ 1852  printenv GO_MOVIES_JWT
+ 1853  printenv REACT_APP_API_URL
+ 1854  *  
+ 1855  printenv REACT_APP_API_URL
+ 1856  npm start
+ 1857  go get github.com/joho/godotenv
+ 1858  ./run.sh
+ 1859  sudo service postgresql start
+ 1860  ./run.sh
+ 1861  export GO_MOVIES_JWT='2dce505d96a53c5768052ee90f3df2055657518dad489160df9913f66042e160'
+ 1862  export GO_MOVIES_DB_KEY='2f17f18d786bac6b040b0b64bd09e6db'
+ 1863  ./run.sh
+ 1864  git add .
+ 1865  git commit "added env vars"
+ 1866  git commit -m "added env vars"
+ 1867  git remote add origin git@github.com:jwaldner/go_movies_backend.git
+ 1868  git branch -M main
+ 1869  git commit -m "test"
+ 1870  git push -u origin main
+ 1871  git commit -m "removed vscode folder"
+ 1872  git add .
+ 1873  git commit -m "removed vscode folder"
+ 1874  git push -u origin main
+ 1875  git add .
+ 1876  git commit -m "test"
+ 1877  git push origin main
+ 1878  git add .
+ 1879  git commit -m befor funtions
+ 1880  git commit -m "befor funtions"
+ 1881  git branch -M main
+ 1882  git remote add origin git@github.com:jwaldner/react_go_movies.git
+ 1883  git push -u origin main
+ 1884  npm start
+ 1885  ./run.sh
+ 1886  npm start
+ 1887  git remote add origin git@github.com:jwaldner/react_go_movies.git
+ 1888  sudo service postgresql start
+ 1889  ./run.sh
+ 1890  sudo service postgresql start
+ 1891  ./run.sh
+ 1892  npm start
+ 1893  ls
+ 1894  cd projects
+ 1895  ls
+ 1896  mkdir bootstrap
+ 1897  cd bootstrap/
+ 1898  code .
+ 1899  sudo service postgresql start
+ 1900  npm start
+ 1901  ./run.sh
+ 1902  curl wttr.in
+ 1903  ls
+ 1904  wsl --list
+ 1905  ls
+ 1906  wsl --list
+ 1907  ls
+ 1908  pwd
+ 1909  npm start
+ 1910  sudo service postgresql start
+ 1911  ./run.sh
+ 1912  sudo apt update
+ 1913  ls
+ 1914  npm start
+ 1915  sudo service postgresql start
+ 1916  ./run.sh
+ 1917  npm start
+ 1918  sudo service postgresql start
+ 1919  go mod tidy
+ 1920  ./run.sh
+ 1921  npm start
+ 1922  git add .
+ 1923  git commit -m "converted to hooks"
+ 1924  git push -u origin main
+ 1925  npm start
+ 1926  sudo service postgresql start
+ 1927  ./run.sh
+ 1928  npm start
+ 1929  npm start
+ 1930  git add .
+ 1931  git commit -m "no payload yet" 
+ 1932  git rm -r *.swp 
+ 1933  git push -u origin main
+ 1934  npm start
+ 1935  git add
+ 1936  git add .
+ 1937  git commit -m "fixed payload, sorry Trevor" 
+ 1938  git push -u origin main
+ 1939  git commit -m "minor bugs" 
+ 1940  git add .
+ 1941  git commit -m "minor bugs" 
+ 1942  git push -u origin main
+ 1943  sudo service postgresql start
+ 1944  ./run.sh
+ 1945  git add .
+ 1946  git commit -m "just in case  commit"
+ 1947  git push -u origin main
+ 1948  ./run.sh
+ 1949  sudo service postgresql start
+ 1950  ls
+ 1951  cd gomodules/
+ 1952  ls
+ 1953  cd ..
+ 1954  ls
+ 1955  cd code
+ 1956  ls
+ 1957  cd ..
+ 1958  ls
+ 1959  cd projects/
+ 1960  la
+ 1961  cd ..
+ 1962  ls
+ 1963  cd gomodules/
+ 1964  ls
+ 1965  cd amtelco/
+ 1966  ls
+ 1967* 
+ 1968  history > hist.txt

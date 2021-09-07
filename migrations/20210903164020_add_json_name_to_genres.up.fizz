@@ -1,0 +1,1 @@
+add_column("genres", "json_name", "string", {"default": ""} )

@@ -1,0 +1,3 @@
+- soda generate fizz CreateNameTable
+- soda generate fizz AddJSONNameToGenres 
+- soda migrate

@@ -1,2 +1,9 @@
 - history > hist.txt
-- history --c
+- history -c
+- sudo service postgresql start
+- ./run.sh
+- ~/go/bin/MailHog
+- MailHog
+- soda generate sql AddUserToUserTable
+- soda migrate
+- go mod init github.com/jwaldner/fubar
