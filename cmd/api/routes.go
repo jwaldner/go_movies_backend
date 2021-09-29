@@ -29,7 +29,8 @@ func (app *application) routes() http.Handler {
 	router.HandlerFunc(http.MethodGet, "/v1/genres/:id", app.getAllMoviesByGenre)
 	router.POST("/v1/admin/editmovie",app.wrap(secure.ThenFunc(app.editMovie)))
 	router.POST("/v1/admin/editgenre",app.wrap(secure.ThenFunc(app.editGenre)))
-	router.GET("/v1/deletemovie/:id",app.wrap(secure.ThenFunc(app.deleteMovie)))
+	router.GET("/v1/admin/deletemovie/:id", app.wrap(secure.ThenFunc(app.deleteMovie)))
+
 	router.GET("/v1/admin/movies",app.wrap(secure.ThenFunc(app.getAllMovies)))
 	router.GET("/auth",app.wrap(secure.ThenFunc(app.statusHandler)))
 

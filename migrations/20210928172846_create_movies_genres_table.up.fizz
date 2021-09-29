@@ -1,0 +1,15 @@
+create_table("movies_genres") {
+  t.Column("id","integer", {primary: true})  
+  t.Column("movie_id", "integer", {"default": 0})
+  t.Column("genre_id", "integer", {"default": 0})
+}
+
+add_foreign_key("movies_genres", "genre_id", {"genres": ["id"]}, {
+    "on_delete": "cascade",
+    "on_update": "cascade",
+})
+
+add_foreign_key("movies_genres", "movie_id", {"movies": ["id"]}, {
+    "on_delete": "cascade",
+    "on_update": "cascade",
+})

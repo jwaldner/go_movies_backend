@@ -236,7 +236,7 @@ ALTER TABLE ONLY public.movies_genres
 
 --
 -- Name: movies_genres fk_movie_genries_movie_id; Type: FK CONSTRAINT; Schema: public; Owner: -
---
+--i
 
 ALTER TABLE ONLY public.movies_genres
     ADD CONSTRAINT fk_movie_genries_movie_id FOREIGN KEY (movie_id) REFERENCES public.movies(id);

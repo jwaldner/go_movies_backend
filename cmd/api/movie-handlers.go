@@ -90,36 +90,33 @@ func (app *application) getAllMovies(w http.ResponseWriter, r *http.Request) {
 }
 
 func (app *application) deleteMovie(w http.ResponseWriter, r *http.Request) {
-
 	params := httprouter.ParamsFromContext(r.Context())
+
+	app.logger.Print("delete param", params)
 
 	id, err := strconv.Atoi(params.ByName("id"))
 
 	if err != nil {
 		app.errorJSON(w, err)
-		app.logger.Print(errors.New("invalid id parameter"))
 		return
 	}
 
 	err = app.models.DB.DeleteMovie(id)
-
 	if err != nil {
 		app.errorJSON(w, err)
-		app.logger.Println(err)
 		return
 	}
 
-	ok := JSONresp{OK: true, Message: "movie deleted"}
+	ok := JSONresp{
+		OK: true,
+	}
 
 	err = app.writeJSON(w, http.StatusOK, ok, "response")
-
 	if err != nil {
 		app.errorJSON(w, err)
-		app.logger.Print(errors.New(err.Error()))
 		return
 	}
 }
-
 func (app *application) editMovie(w http.ResponseWriter, r *http.Request) {
 	var payload MoviePayload
 
@@ -165,7 +162,7 @@ func (app *application) editMovie(w http.ResponseWriter, r *http.Request) {
 
 	for _, v := range arr {
 		genres[v.ID] = v.GenreName
-		IDs = append(IDs,v.ID)	
+		IDs = append(IDs, v.ID)
 	}
 
 	movie.MovieGenre = genres

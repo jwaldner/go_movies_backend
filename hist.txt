@@ -7,7 +7,7 @@
   975  ./run.sh
   976  sudo service postgresql start
   977  ./run.sh
-  978  sudo service postgresql start
+  97
   979  ./run.sh
   980  ~/go/bin/MailHog
   981  MailHog

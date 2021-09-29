@@ -1,0 +1,10 @@
+create_table("movies") {
+  t.Column("id","integer", {primary: true})  
+  t.Column("title", "string", {})
+  t.Column("description", "string", {"size": 1000})
+  t.Column("year", "integer", {"default": 0})
+  t.Column("release_date", "timestamp", { })
+  t.Column("runtime", "integer", {"default": 0})
+  t.Column("rating", "integer", {"default": 0})
+  t.Column("mpaa_rating", "string", {"default": ""}) 
+}

@@ -1,0 +1,3 @@
+"postgres://movie_user:magic_ticket@localhost/movie_database?sslmode=disable"
+"postgres://movie_user:magic_ticket@localhost/movie_database?sslmode=disable"
+"postgres://movie_user:magic_ticket@localhost/movie_database?sslmode=disable"

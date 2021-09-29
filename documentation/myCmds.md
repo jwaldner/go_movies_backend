@@ -2,3 +2,5 @@
 - sudo service postgresql start
 - npm start
 - ./run.sh
+- history|grep sudo
+- 

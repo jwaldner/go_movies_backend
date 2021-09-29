@@ -1,0 +1,1 @@
+ sudo -u postgres psql -d movie_database -f go_movies.sql

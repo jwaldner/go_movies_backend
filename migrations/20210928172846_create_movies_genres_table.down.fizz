@@ -1,0 +1,4 @@
+
+drop_foreign_key("movies_genres", "movies_genres_genres_id_fk", {"if_exists": true})
+drop_foreign_key("movies_genres", "movies_genres_movie_id_fk", {"if_exists": true})
+drop_table("movies_genres")
